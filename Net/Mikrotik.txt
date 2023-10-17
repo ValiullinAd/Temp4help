@@ -1,0 +1,30 @@
+Установим адрес на интерфейсе и дефолт роут:
+system identity set name=M-R-12
+ip address add address=10.0.0.12 netmask=255.255.255.0 interface=ether1
+ip route add gateway= 10.0.0.17
+
+ip add pr
+ip rou pr
+
+Настроим его статически не используя сабнеттинг
+system identity set name=M-R-7
+ip address add interface=ether1 address=13.0.2.7/24 disabled=no
+ip address add interface=ether2 address=12.0.5.7/24 disabled=no
+ip address add interface=ether3 address=12.0.6.7/24 disabled=no
+ip address add interface=ether4 address=11.0.6.7/24 disabled=no
+ip address add interface=ether5 address=11.0.5.7/24 disabled=no
+ip address add interface=ether6 address=13.0.1.7/24 disabled=no
+
+ip route add gateway=13.0.2.1
+
+ip route add dst-address=10.0.0.0/24 gateway=13.0.1.16
+ip route add dst-address=10.0.1.0/24 gateway=13.0.1.16
+ip route add dst-address=10.0.2.0/24 gateway=13.0.1.16
+ip route add dst-address=10.0.3.0/24 gateway=13.0.1.16
+ip route add dst-address=10.0.4.0/24 gateway=13.0.1.16
+ip route add dst-address=10.0.5.0/24 gateway=13.0.1.16
+
+ip route add dst-address=192.168.10.0/24 gateway=13.0.1.16
+ip route add dst-address=192.168.20.0/24 gateway=13.0.1.16
+ip route add dst-address=192.168.30.0/24 gateway=13.0.1.16
+
