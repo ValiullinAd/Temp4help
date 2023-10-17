@@ -68,4 +68,7 @@ shutdown - опции время сообщение
   shutdown 10:10 - точное время
   shutdown +10 - минут
   shutdown +0 OR shutdown now
-  
+
+nano /etc/sysctl.conf - изменения параметров маршрутизации
+sysctl -p /etc/sysctl.conf - применим изменения
+
