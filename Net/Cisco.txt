@@ -1,1 +1,21 @@
-1
+SWITCH
+enable or en
+show mac address-table
+configure terminal or conf ter
+(config)hostname Switch7 - add name of switch
+  
+(config)interface vlan 1 or (config)int vlan 1
+(config-if)ip address 192.168.1.100 255.255.255.0
+(config-if)no shutdown or (config-if)no sh
+(config)#username user password Qq123456
+(config)#aaa new-model
+write or wr or do write or do wr
+exit
+
+ROUTER
+en
+conf ter
+(config)#int e0/1
+(config-if)#ip address 192.168.1.1 255.255.255.0
+(config-if)#no shutdown
+do wr
