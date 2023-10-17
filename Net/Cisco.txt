@@ -19,3 +19,17 @@ conf ter
 (config-if)#ip address 192.168.1.1 255.255.255.0
 (config-if)#no shutdown
 do wr
+
+Смотрим сюда 8zML2GV.png
+
+Помещаем в Vlan 10
+Switch 7
+en
+conf ter
+(config)#int e1/2
+(config-if)#switchport mode access
+(config-if)#switchport access vlan 10
+конфигурируем trunk port
+(config)#int e0/0
+(config-if)#switchport trunk encapsulation dot1q
+(config-if)#switchport mode trunk
