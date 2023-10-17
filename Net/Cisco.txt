@@ -12,6 +12,9 @@ configure terminal or conf ter
 write or wr or do write or do wr
 exit
 
+sh ip int br - show ip interface brief
+sh ip rou - show ip route
+
 ROUTER
 en
 conf ter
