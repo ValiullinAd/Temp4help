@@ -1,0 +1,34 @@
+ip address
+ip address add 13.0.1.16/24 dev ens3
+ip link set ens3 up
+ip address add 10.0.2.16/24 dev ens4
+ip link set ens4 up
+ip address add 10.0.4.16/24 dev ens5
+ip link set ens5 up
+ip route add default via 13.0.1.7
+ip route add 192.168.10.0/24 via 10.0.2.4
+ip route add 192.168.20.0/24 via 10.0.2.4
+ip route add 192.168.30.0/24 via 10.0.2.4
+ip route add 10.0.0.0/24 via 10.0.2.4
+ip route add 10.0.1.0/24 via 10.0.2.4
+ip route add 10.0.3.0/24 via 10.0.2.4
+ip route add 10.0.5.0/24 via 10.0.4.14
+ip address
+ip route
+
+nano /etc/network/interfaces
+Добавим в файл /etc/network/interfaces следующие
+
+auto ens3
+iface ens3 inet static
+				address 10.0.5.15/24
+
+сохраняем
+systemctl restart networking.service
+И настроем маршрут
+ip route add default via 10.0.5.14
+ip address
+ip route
+
+
+net.ipv4.ip_forward=1 в файле /etc/sysctl.conf
