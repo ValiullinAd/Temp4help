@@ -1,0 +1,71 @@
+whoami
+whatis nano - nano 4to ento?
+whereis bash - gde
+hostname -i
+ifconfig or ip a - 
+mkdir - create dir
+ls - list
+cd - change directory (cd .. (-up dir) cd — (predidushaia))
+pwd - where am i
+mkdir testdir{0..4} - create dir from 0 to 4 (testdir0 - testdir4)
+touch dir{0..4}/text{0..4}.txt - (5 dir and 5 files in every dir)
+rm — remove file or dir
+rmdir - rem dir
+rm -r - remove dir with files inside dir
+cp — copy (cp -r dir00 dir03) - copy dir00 in dir03 (cp -r dir00/* dir03/dir) - just files in dir
+mv - move (mv -v dir19/* dir17/) - move files inside dir
+nano text.txt - text redactor
+grep - poisk 
+  ls | grep 'My Documents' - ishem My Documents in list of files and dir
+  grep 'Class 1' Students.txt - ishem Class 1 in Students.txt
+  grep -e 'Class 1' -e Todd Students.txt - ishem Class 1 OR Todd in Students.txt
+  grep -r - ishem po vsem papkam
+  grep "Class [123]" Students.txt - [квадратные скобки] они используются чтобы проверить на соответствие одному из указанных символов.
+  grep "Class [1-3]" Students.txt - [-] знак дефиса означает диапазон значений. Это могут быть как буквы, так и цифры.
+  grep "^A" Students.txt - ^ каретка используется для поиска строк, которые начинаются с указанного шаблона. Команда ниже выведет все строки, которые начинаются с буквы "А".
+  grep "Class [^1-2]" Students.txt - [^] но между квадратными скобками смысл каретки меняется. Здесь он исключает из поиска следующие за ней символы или диапазон символов.
+  grep "1$" Students.txt - $ знак доллара означает конец строки. Команда выведет только те строки, в конце которых встречает указанный шаблон.
+  grep "A.a" Students.txt - .точка обозначает один любой символ. Чтобы указать несколько любых символов, можно написать символ точку нужное количество раз.
+  grep -o '[[:alnum:]+.\_-]*@[[:alnum:]+.\_-]*' emails.txt - Ключ o указывает на то, что нам нужно выбрать только e-mail адреса, а не все предложение, в котором встречается e-mail.
+  grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" /var/log/auth.log - Cписок IP, с которых была попытка подключения по SSH.
+  grep -E 'string1|string2' filename - OR
+  grep -i string filename - grep чувствительна к регистру, проблема решается путем добавления ключа i к команде поиска.
+  grep [Ss]tring filename - может быть как заглавной так и строчной
+  grep -v string-to-exclude filename - Чтобы просмотреть содержание файла с исключением конкретной строки к запросу нужно добавить ключ v. (cat 1.txt | grep -v something)
+  grep -n string filename - Чтобы показать номер строки, где была найдена искомая строка, команду grep следует запускать с ключом n.
+  grep -c 1 string filename - нужно запустить команду grep с ключом c и передать число строк для отображения редшествующее и следующее за указанной строкой
+kill — убить процесс по его идентификатору (Process ID);
+pkill — убить процесс по его имени;
+killall — убить все процессы с указанным именем.
+top (Table Of Processes) — каждые 2 секунды обновляет активные процессы
+ps axu | grep имя_процесса - С помощью утилиты grep можно вычленить нужный процесс, если известно его имя.
+dpkg -i package.deb — установит пакет .deb
+dpkg —remove package — удалит пакет
+apt install имя_пакета
+apt remove имя_пакета
+apt purge имя_пакета - Для удаления зависимостей вместо remove используется purge
+apt autoremove - Для автоматического удаления всего лишнего из системы используется 
+useradd -m <username> - Создание пользователя с каталогом его имени
+passwd <username> - пароль пользователю
+su - <username> - доступ к пользователю
+useradd -m -d <custom_home_dir_location> <username> - По умолчанию useradd создает домашний каталог пользователя в «/home». Чтобы указать домашний каталог в другом месте, используйте флаг «-d». Обратите внимание, что каталог должен существовать заранее.
+
+Перемещение существующего домашнего каталога пользователя
+Мы также можем назначить другой домашний каталог для существующего пользователя. Он не будет автоматически перемещать содержимое существующего домашнего каталога в новое место.
+Создайте новый каталог. Это будет новый домашний каталог существующего пользователя.
+$ mkdir -pv /extra/new_home
+Разрешите новому пользователю полный доступ к новому каталогу.
+$ sudo chown <username> /extra/new_home
+Переместите все содержимое существующего домашнего каталога пользователя в новый.
+$ sudo mv /home/<username>/* /extra/new_home
+Назначьте новый каталог домашним для пользователя.
+$ sudo usermod -d /extra/new_home -m <username>
+Проверьте изменение.
+$ su - <username>
+$ pwd ~
+
+shutdown - опции время сообщение
+  shutdown 10:10 - точное время
+  shutdown +10 - минут
+  shutdown +0 OR shutdown now
+  
